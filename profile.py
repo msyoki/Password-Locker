@@ -1,16 +1,16 @@
 class Profile:
     """
-    Class that generates new instances of passwords
+    Class that generates new instances of user profiles
     """
     profile_list = []
 
     def __init__(self, username, password):
         """
-        __init__ method to define the properties of a User object
+        __init__ method to define the properties of a user profile object
 
         Args:
-            username : name of a user
-            password : password for a user
+            username : username for a profile
+            password : password for a profile
         """
 
         self.username = username
