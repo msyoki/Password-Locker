@@ -1,5 +1,5 @@
 import unittest # Importing the unittest module
-from profile import Profile # Importing the contact class
+from profile import Profile # Importing the profile class
 
 class TestProfile(unittest.TestCase):
 
@@ -22,8 +22,8 @@ class TestProfile(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_profile.username,"JohnDoe")
-        self.assertEqual(self.new_profile.password,"Passlockjd2020#")
+        self.assertEqual(self.new_profile.profile_username,"JohnDoe")
+        self.assertEqual(self.new_profile.profile_password,"Passlockjd2020#")
         
     def test_save_profile(self):
         """
