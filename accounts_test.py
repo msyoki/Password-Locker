@@ -15,7 +15,7 @@ class TestProfile(unittest.TestCase):
         """
         Set up method to run before each test cases.
         """
-        self.new_account = Account("Passlockjd2020#","Gmail","gmail20*") # create account object
+        self.new_account = Account("JohnD2020#","Gmail","gmail20*") # create account object
 
     
     def tearDown(self):
@@ -30,7 +30,7 @@ class TestProfile(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         """
 
-        self.assertEqual(self.new_account.profile_password,"Passlockjd2020#")
+        self.assertEqual(self.new_account.profile_password,"JohnD2020#")
         self.assertEqual(self.new_account.account_name,"Gmail")
         self.assertEqual(self.new_account.account_password,"gmail20*")
 
@@ -52,7 +52,7 @@ class TestProfile(unittest.TestCase):
         objects to our contact_list
         """
         self.new_account.save_account()
-        test_account = Account("Passlockjd2020#","Gmail","gmail20*") 
+        test_account = Account("JohnD2020#","Gmail","gmail20*") 
         test_account.save_account()
         self.assertEqual(len(Account.account_list),2)
 
@@ -63,7 +63,7 @@ class TestProfile(unittest.TestCase):
         test_delete_account to testif we can remove an account from our account_list
         """
         self.new_account.save_account()
-        test_account = Account("Passlockjd2020#","Gmail","gmail20*") 
+        test_account = Account("JohnD2020#","Gmail","gmail20*") 
         test_account.save_account()
 
         self.new_account.delete_account() #Deleting an account object
@@ -88,13 +88,13 @@ class TestProfile(unittest.TestCase):
         #save new accounts
         self.new_account.save_account()
 
-        test_account = Account("Passlockjd2020#","Instagram","Instajd20*")
+        test_account = Account("JohnD2020#","Instagram","Instajd20*")
         test_account.save_account()
 
-        test_account = Account("Passlockjd2020#","Linkedin","Linkjd20*")
+        test_account = Account("JohnD2020#","Linkedin","Linkjd20*")
         test_account.save_account()
 
-        self.assertEqual(len(Account.display_account("Passlockjd2020#")),3)
+        self.assertEqual(len(Account.display_account("JohnD2020#")),3)
 
 
 
