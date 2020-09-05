@@ -1,3 +1,5 @@
+from accounts import Account
+
 class Profile:
     """
     Class that generates new instances of user profiles
@@ -27,3 +29,20 @@ class Profile:
         """
 
         Profile.profile_list.append(self)
+
+    @classmethod
+    def find_account(cls, name):
+        '''
+        Method that checks if accounts is imported correctly
+        Args:
+            name : name of the account
+        Returns:
+            Boolean : True / False if the credential exists or does not exist
+        '''
+
+        # Search for the account in the account_list
+        for account in Account.account_list:
+            if account.account_name == name:
+                return True
+
+        return False
