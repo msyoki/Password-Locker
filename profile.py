@@ -16,6 +16,3 @@ class Profile:
         self.username = username
         self.password = password
 
-new_profile = Profile("JohnDoe","Passlockjd2020#")
-print(new_profile.username)
-print(new_profile.password)
