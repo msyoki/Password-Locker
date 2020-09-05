@@ -10,6 +10,7 @@ class TestProfile(unittest.TestCase):
         unittest.TestCase: TestCase class that helps in creating test cases
     """
 
+
     def setUp(self):
         """
         Set up method to run before each test cases.
@@ -33,6 +34,7 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(self.new_account.account_name,"Gmail")
         self.assertEqual(self.new_account.account_password,"gmail20*")
 
+
     def test_save_account(self):
         """
         Test case to test if the account object is saved into the account_list
@@ -54,6 +56,7 @@ class TestProfile(unittest.TestCase):
         test_account.save_account()
         self.assertEqual(len(Account.account_list),2)
 
+
     def test_delete_account(self):
 
         """
@@ -66,6 +69,34 @@ class TestProfile(unittest.TestCase):
         self.new_account.delete_account() #Deleting an account object
         self.assertEqual(len(Account.account_list),1)
 
-       
+
+    def test_generate_password(self):
+        '''
+        Test case to test if a user can log into their 
+        '''
+        
+        generated_password = self.new_account.generate_password()
+
+        self.assertEqual( len(generated_password), 8 )   
+
+
+    def test_display_account(self):
+        """
+        test case to test if user can access a list of all the accounts saved 
+        """
+
+        #save new accounts
+        self.new_account.save_account()
+
+        test_account = Account("Passlockjd2020#","Instagram","Instajd20*")
+        test_account.save_account()
+
+        test_account = Account("Passlockjd2020#","Linkedin","Linkjd20*")
+        test_account.save_account()
+
+        self.assertEqual(len(Account.display_account("Passlockjd2020#")),3)
+
+
+
 if __name__ == '__main__':
     unittest.main()    
