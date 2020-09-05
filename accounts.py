@@ -18,4 +18,11 @@ class Account:
         self.profile_password = profile_password
         self.account_name = account_name
         self.account_password = account_password
+
+    def save_account(self):
+        """
+        save_account method to save account object into acount_list
+        """
+
+        Account.account_list.append(self)     
         

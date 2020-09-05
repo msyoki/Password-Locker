@@ -25,6 +25,16 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(self.new_account.profile_password,"Passlockjd2020#")
         self.assertEqual(self.new_account.account_name,"Gmail")
         self.assertEqual(self.new_account.account_password,"gmail20*")
+
+    def test_save_account(self):
+        '''
+        Test case to test if the account object is saved into the account_list
+        '''
+
+        # Save the new account
+        self.new_account.save_account()
+
+        self.assertEqual( len(Account.account_list), 1 )
        
 if __name__ == '__main__':
     unittest.main()    
