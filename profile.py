@@ -2,7 +2,7 @@ class Profile:
     """
     Class that generates new instances of passwords
     """
-    Profile_list = []
+    profile_list = []
 
     def __init__(self, username, password):
         """
@@ -16,3 +16,11 @@ class Profile:
         self.username = username
         self.password = password
 
+
+    def save_profile(self):
+
+        """
+        save_profile method to save profile objects into profile_list
+        """
+
+        Profile.profile_list.append(self)
