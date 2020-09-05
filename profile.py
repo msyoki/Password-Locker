@@ -20,7 +20,7 @@ class Profile:
     def save_profile(self):
 
         """
-        save_profile method to save profile objects into profile_list
+        save_profile method to save profile object into profile_list
         """
 
         Profile.profile_list.append(self)

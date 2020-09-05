@@ -25,6 +25,13 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(self.new_profile.username,"JohnDoe")
         self.assertEqual(self.new_profile.password,"Passlockjd2020#")
         
+    def test_save_profile(self):
+        """
+        test_save_profile test case to test if profile object is saved into the profile_list
+        """
+
+        self.new_profile.save_profile() # saving the new profile
+        self.assertEqual(len(Profile.profile_list),1)
 
 
 if __name__ == '__main__':
