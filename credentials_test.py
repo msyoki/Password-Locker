@@ -61,7 +61,7 @@ class TestProfile(unittest.TestCase):
     def test_delete_credential(self):
 
         """
-        test_delete_credential to testif we can remove an credential from our credential_list
+        test_delete_credential to test if we can remove an credential from our credential_list
         """
         self.new_credential.save_credential()
         test_credential = Credential("JohnD2020#","Gmail","gmail20*") 

@@ -31,7 +31,7 @@ class Credential:
 
     def delete_credential(self):
         """
-        delete_contact method deletes a saved credential from the credential_list
+        delete_credential method deletes a saved credential from the credential_list
         """
 
         Credential.credential_list.remove(self)
