@@ -69,3 +69,11 @@ class User:
                 return Credential.credential_list
 
         return False
+    
+    @classmethod
+    def display_user(cls):
+        '''
+        Method that returns the user list
+        '''
+        
+        return cls.user_list
