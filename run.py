@@ -54,3 +54,13 @@ def create_credentail(user_password, name, password):
     new_credentail = Credential(user_password,name,password)
 
     return new_credentail
+
+
+def save_credentials(credential):
+    '''
+    Function to save a credential
+    Args:
+        credential : the credential to be saved
+    '''
+
+    credential.save_credential()
