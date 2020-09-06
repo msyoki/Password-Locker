@@ -42,7 +42,7 @@ def user_log_in(name, password):
         return User.log_in(name, password)
 
 
-def create_credentail(user_password, name, password):
+def create_credential(user_password, name, password):
     '''
     Function to create a credential 
     Args:
@@ -167,7 +167,7 @@ def main():
                     print("-"*10)
             else:
                 print("\n")
-                print("Password Locker has no current user.\n    Be the first user :)")
+                print("Password Locker has no current user.\n    Be our first user!!!")
                 print("\n")
 
         elif short_code == 'lg':
@@ -196,13 +196,13 @@ def main():
 
                 while True:
                     '''
-                    Loop to run functions after logging in
+                    Loop to run functions after logging in,while loop lops till condition is met
                     '''
                     print('''  Short codes:
-        cc - add a credential \n
-        dc - display credentials \n
-        cg - create a credential with a generate password \n
-        ex - exit Credentials''')
+                    cc - add a credential \n
+                    dc - display credentials \n
+                    cg - create a credential with a generate password \n
+                    ex - exit Credentials''')
 
                     # Get short code from the user
                     short_code = input().lower()
@@ -223,7 +223,7 @@ def main():
                         credential_password = input()
 
                         # Create and save new user
-                        save_credentials( create_credentail( user_password, credential_name, credential_password) )
+                        save_credentials( create_credential( user_password, credential_name, credential_password) )
 
                         print("\n")
                         print(f"Credentials for {credential_name} have been created and saved")
