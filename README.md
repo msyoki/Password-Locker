@@ -16,6 +16,12 @@ With ShieldPassword-Locker (see below user stories);
 * As a user, you can delete a credentials account that you no longer need in the application.
 
 
+### How to run the app
+* Navigate to the project directory in the terminal
+* run the below command to interact with the UI 
+    > $ ./run.py
+
+
 ## Technologies
 Python3.8
 
