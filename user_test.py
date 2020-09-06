@@ -77,5 +77,13 @@ class TestUser(unittest.TestCase):
 
         self.assertEqual( found_credential, Credential.credential_list )   
 
+    
+    def test_display_user(self):
+        """
+        Test case to test if a user can see a list of all the users saved
+        """
+        
+        self.assertEqual( User.display_user() , User.user_list )
+
 if __name__ == '__main__':
     unittest.main()

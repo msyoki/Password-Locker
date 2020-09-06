@@ -72,8 +72,8 @@ class User:
     
     @classmethod
     def display_user(cls):
-        '''
+        """
         Method that returns the user list
-        '''
+        """
         
         return cls.user_list
