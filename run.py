@@ -19,6 +19,7 @@ def create_profile(name, password):
 
     return new_user
 
+
 def save_users(user):
     """
     Function to save a user account
@@ -28,19 +29,14 @@ def save_users(user):
 
     user.save_user()
 
-@classmethod
-def find_credential(cls, name):
-    """
-    Method that checks if Credentials is imported correctly
+
+def user_log_in(name, password):
+    '''
+    Function that allows a user to log into their credential account
     Args:
-        name : name of the credential
-    Returns:
-        Boolean : True / False if the credential exists or does not exist
-    """
-
-    # Search for the user in the user list
-    for credential in Credential.credential_list:
-        if credential.credential_name == name:
-            return True
-
-    return False
+        name : the name the user used to create their user account
+        password : the password the user used to create their user account
+    '''
+    log_in = User.log_in(name, password)
+    if log_in != False:
+        return User.log_in(name, password)
