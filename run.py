@@ -40,3 +40,17 @@ def user_log_in(name, password):
     log_in = User.log_in(name, password)
     if log_in != False:
         return User.log_in(name, password)
+
+
+def create_credentail(user_password, name, password):
+    '''
+    Function to create a credential 
+    Args:
+        user_password : the password for Password Locker
+        name : the name of the account 
+        password : the password for the account
+    '''
+
+    new_credentail = Credential(user_password,name,password)
+
+    return new_credentail
