@@ -7,7 +7,7 @@ Import Profile Class from profile Module and Account Class from accounts Module
 from user import User
 from credentials import Credential
 
-def create_profile(name, password):
+def create_user(name, password):
     """
     Function to create a user account
     Args:
@@ -65,6 +65,14 @@ def save_credentials(credential):
 
     credential.save_credential()
 
+def delete_credentials(credential):
+    """
+    Function to deletes a credential
+    Args:
+        credential : the credential to be deleted
+    """
+    credential.delete_credential()
+
 def check_existing_credentials(name):
     '''
     Function that checks if a user credential name already exists
@@ -74,6 +82,12 @@ def check_existing_credentials(name):
 
     return Credential.credential_exist(name)
 
+def display_users():
+    '''
+    Function that returns all the saved users 
+    '''
+
+    return User.display_user()
 
 def display_credentials(password):
     '''
@@ -81,3 +95,15 @@ def display_credentials(password):
     '''
 
     return Credential.display_credential(password)
+
+
+def create_generated_password(name):
+    '''
+    Function that generates a password for the user 
+    Args:
+        name : the name of the account
+    '''
+    password = Credential.generate_password()
+
+    return password
+
