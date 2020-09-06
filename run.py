@@ -73,3 +73,11 @@ def check_existing_credentials(name):
     '''
 
     return Credential.credential_exist(name)
+
+
+def display_credentials(password):
+    '''
+    Function that returns all the saved credentials
+    '''
+
+    return Credential.display_credential(password)
