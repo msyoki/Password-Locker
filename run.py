@@ -277,7 +277,7 @@ def main():
                         check if credential exits
                         """
                         if check_existing_credentials(credential_name) == True:
-                            print(f"{credential_name} exists")
+                            print(f"credential {credential_name} has been deleted")
                         else:
                             print("no cerdential with this name")  
 
