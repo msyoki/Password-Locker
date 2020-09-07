@@ -65,12 +65,11 @@ def save_credentials(credential):
 
     credential.save_credential()
 
-def delete_credentials(credential):
+def delete_credential(credential):
     """
-    Function to deletes a credential
-    Args:
-        credential : the credential to be deleted
+    delete_credential method deletes a saved credential from the credential_list
     """
+
     credential.delete_credential()
 
 def check_existing_credentials(name):
@@ -112,7 +111,7 @@ def main():
     Function running the Password Locker app
     '''
 
-    print('''Welcome to ShieldPassword Locker \n
+    print('''Welcome to Password Locker app  \n
     Use these short codes to navigate
     ''')
 
@@ -122,34 +121,34 @@ def main():
         '''
 
         print('''   Short codes:
-        cu - create a Password Locker account \n
-        du - display names of current Password Locker users \n
-        lg - log into your Password Locker account \n
-        ex - exit the Password Locker account''')
+        cu - create a Password Locker app account \n
+        du - display names of current Password Locker app users \n
+        lg - log into your Password Locker app account \n
+        ex - exit the Password Locker app account''')
 
         # Get short codes from the user
         short_code = input().lower()
 
         if short_code == 'cu':
             '''
-            Creating a Password Locker account
+            Creating a Password Locker app account
             '''
 
             print("\n")
-            print("New Password Locker Account")
+            print("Create New Account")
             print("-"*10)
 
-            print("User name ...")
+            print("User name : ")
             user_name = input()
 
-            print("Password ...")
+            print("Password : ")
             user_password = input()
 
             # Create and save new user
             save_users( create_user( user_name, user_password) )
 
             print("\n")
-            print(f"{user_name} welcome to Password Locker")
+            print(f"{user_name} Welcome to Password Locker app!!!")
             print("\n")
 
         elif short_code == 'du':
@@ -159,7 +158,7 @@ def main():
 
             if display_users():
                 print("\n")
-                print("Here are the current users of Password Locker")
+                print("Current Password Locker app Users: ")
                 print("-"*10)
 
                 for user in display_users():
@@ -167,19 +166,19 @@ def main():
                     print("-"*10)
             else:
                 print("\n")
-                print("Password Locker has no current user.\n    Be our first user!!!")
+                print("Password Locker app  has no current user.\n let's sign you up")
                 print("\n")
 
         elif short_code == 'lg':
             '''
-            Logs in the user into their Password Locker account
+            Logs in the user into their Password Locker app account
             '''
             print("\n")
-            print("Log into Password Locker Account")
+            print("Log into Password Locker app Account")
             print("Enter the user name")
             user_name = input()
 
-            print("Enter the password")
+            print("Enter the password: ")
             user_password = input()
 
             if user_log_in(user_name,user_password) == None:
@@ -191,7 +190,7 @@ def main():
 
                 user_log_in(user_name,user_password)
                 print("\n")
-                print(f'''{user_name} welcome to your Credentials\n
+                print(f'''{user_name} Here are your Credentials\n
                 Use these short codes to get around''')
 
                 while True:
@@ -201,7 +200,8 @@ def main():
                     print('''  Short codes:
                     cc - add a credential \n
                     dc - display credentials \n
-                    cg - create a credential with a generate password \n
+                    cg - create a credential with a generate password \n 
+                    del - delete credential \n
                     ex - exit Credentials''')
 
                     # Get short code from the user
@@ -264,8 +264,24 @@ def main():
                         # Save new credential with its generated password
                         save_credentials( Credential(user_password, credential_name, (create_generated_password(credential_name)) ) )
                         print("\n")
-                        print(f"Credentials for {credential_name} have been created and saved")
+                        print(f"Credential {credential_name} has been created and saved")
                         print("\n")
+
+                        ######DELETE CREDENTIAL TEST
+
+                    elif short_code == 'del':
+                        print("Enter credential name: ")
+                        credential_name = input()
+                        
+                        """
+                        check if credential exits
+                        """
+                        if check_existing_credentials(credential_name) == True:
+                            print(f"{credential_name} exists")
+                        else:
+                            print("no cerdential with this name")  
+
+                        ######DELETE CREDENTIAL TEST
 
                     elif short_code == 'ex':
                         print(f"See you later {user_name}")
@@ -280,7 +296,7 @@ def main():
 
         elif short_code == 'ex':
             '''
-            Exit Password Locker
+            Exit Password Locker app
             '''
             print("\n")
             print("Bye .....")

@@ -56,7 +56,7 @@ class TestProfile(unittest.TestCase):
         test_delete_credential to test if we can remove an credential from our credential_list
         """
         self.new_credential.save_credential()
-        test_credential = Credential("JohnD2020#", "Gmail", "gmail20*")
+        test_credential = Credential("JohnD2020#", "Twitter", "Twitter20*")
         test_credential.save_credential()
 
         self.new_credential.delete_credential()  # Deleting an credential object
