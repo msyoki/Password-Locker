@@ -1,11 +1,12 @@
 from credentials import Credential
 
+
 class User:
     """
     Class that generates new instances of user
     """
 
-    #Empty list of users 
+    # Empty list of users
 
     user_list = []
 
@@ -20,7 +21,6 @@ class User:
 
         self.user_name = user_name
         self.user_password = user_password
-
 
     def save_user(self):
 
@@ -47,8 +47,6 @@ class User:
 
         return False
 
-
-
     @classmethod
     def log_in(cls, name, password):
         """
@@ -69,11 +67,11 @@ class User:
                 return Credential.credential_list
 
         return False
-    
+
     @classmethod
     def display_user(cls):
         """
         Method that returns the user list
         """
-        
+
         return cls.user_list
