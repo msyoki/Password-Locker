@@ -1,4 +1,4 @@
-# ShieldPassword-Locker
+# Password-Locker APP
 ## Author 
 Musyoki Mutua
 
