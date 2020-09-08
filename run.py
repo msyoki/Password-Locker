@@ -6,6 +6,7 @@ Import Profile Class from profile Module and Account Class from accounts Module
 
 from user import User
 from credentials import Credential
+from termcolor import colored, cprint
 
 def create_user(name, password):
     """
@@ -110,21 +111,23 @@ def main():
     '''
     Function running the Password Locker app
     '''
-
-    print('''Welcome to Password Locker app  \n
-    Use these short codes to navigate
-    ''')
+    print('\n')
+    print('-'*50)
+    cprint('WELCOME TO PASSWORD LOCKER APP','yellow',attrs=['bold'])
+    print('-'*50)
+    cprint('Use these short codes to navigate','cyan')
+    print('.'*50)
 
     while True:
         '''
         Loop that is running the entire application
         '''
 
-        print('''   Short codes:
-        cu - create a Password Locker app account \n
-        du - display names of current Password Locker app users \n
-        lg - log into your Password Locker app account \n
-        ex - exit the Password Locker app account''')
+        print('''Short codes:\n
+            cu - create a Password Locker app account \n
+            du - display names of current Password Locker app users \n
+            lg - log into your Password Locker app account \n
+            ex - exit the Password Locker app account''')
 
         # Get short codes from the user
         short_code = input().lower()
@@ -134,8 +137,8 @@ def main():
             Creating a Password Locker app account
             '''
 
-            print("\n")
-            print("Create New Account")
+            print('-'*50)
+            cprint("Create New Account",'green')
             print("-"*10)
 
             print("User name : ")
@@ -147,9 +150,11 @@ def main():
             # Create and save new user
             save_users( create_user( user_name, user_password) )
 
-            print("\n")
-            print(f"{user_name} Welcome to Password Locker app!!!")
-            print("\n")
+            print('-'*50)
+            cprint(f"Account created successfully !!! ",'green')
+            print('-'*50)
+            cprint("Please log-in",'cyan')
+            print('-'*10)
 
         elif short_code == 'du':
             '''
@@ -157,15 +162,15 @@ def main():
             '''
 
             if display_users():
-                print("\n")
-                print("Current Password Locker app Users: ")
+                print('-'*50)
+                cprint("Current Password Locker app Users:",'white',attrs=['bold'])
                 print("-"*10)
 
                 for user in display_users():
                     print(f"{user.user_name}")
                     print("-"*10)
             else:
-                print("\n")
+                print('-'*50)
                 print("Password Locker app  has no current user.\n let's sign you up")
                 print("\n")
 
@@ -173,25 +178,28 @@ def main():
             '''
             Logs in the user into their Password Locker app account
             '''
-            print("\n")
-            print("Log into Password Locker app Account")
+            print('-'*50)
+            cprint("Log into Password Locker app Account",'green')
+            print("-"*10)
             print("Enter the user name")
             user_name = input()
-
             print("Enter the password: ")
             user_password = input()
+            print('\n')
 
             if user_log_in(user_name,user_password) == None:
-                print("\n")
-                print("Please try again or create an account")
+                print('-'*50)
+                cprint("Please try again or create an account",'red')
                 print("\n")
 
             else:
 
                 user_log_in(user_name,user_password)
-                print("\n")
-                print(f'''{user_name} Here are your Credentials\n
-                Use these short codes to get around''')
+                print('-'*50)
+                cprint(f'Welcome to your account: {user_name}','green')
+                print('-'*50)
+                cprint('Navigate below; ','cyan')
+                print('-'*10)
 
                 while True:
                     '''
@@ -212,8 +220,8 @@ def main():
                         Creating a Credential
                         '''
 
-                        print("\n")
-                        print("New Credential")
+                        print('-'*50)
+                        cprint("New Credential",'yellow')
                         print("-"*10)
 
                         print("Name of the credential ...")
@@ -226,7 +234,7 @@ def main():
                         save_credentials( create_credential( user_password, credential_name, credential_password) )
 
                         print("\n")
-                        print(f"Credentials for {credential_name} have been created and saved")
+                        cprint(f"Credentials for {credential_name} have been created and saved",'green')
                         print("\n")
 
                     elif short_code == 'dc':
@@ -235,18 +243,18 @@ def main():
                         '''
 
                         if display_credentials(user_password):
-                            print("\n")
-                            print(f"{user_name}\'s credentials")
+                            print('-'*50)
+                            print(f"{user_name}\'s credentials",'yellow',attrs=['bold'])
                             print("-"*10)
 
                             for credential in display_credentials(user_password):
-                                print(f"Account ..... {credential.credential_name}")
-                                print(f"Password .... {credential.credential_password}")
+                                cprint(f"Account ..... {credential.credential_name}",'yellow',attrs=['bold'])
+                                cprint(f"Password .... {credential.credential_password}",'yellow',attrs=['bold'])
                                 print("-"*10)
 
                         else:
-                            print("\n")
-                            print("You have no credentials")
+                            print('-'*50)
+                            cprint("You have no credentials",'red')
                             print("\n")
 
                     elif short_code == 'cg':
@@ -254,8 +262,8 @@ def main():
                         Creating a credential with a generated password
                         '''
 
-                        print("\n")
-                        print("New Credential")
+                        print('-'*50)
+                        cprint("New Credential",'yellow')
                         print("-"*10)
 
                         print("Name of the credential ...")
@@ -264,49 +272,57 @@ def main():
                         # Save new credential with its generated password
                         save_credentials( Credential(user_password, credential_name, (create_generated_password(credential_name)) ) )
                         print("\n")
-                        print(f"Credential {credential_name} has been created and saved")
+                        cprint(f"Credential '{credential_name}' has been created and saved",'yellow')
                         print("\n")
 
-                        ######DELETE CREDENTIAL TEST
+                        #Delete credential
 
                     elif short_code == 'del':
-                        print("Enter credential name: ")
+                        print('-'*50)
+                        cprint("Enter credential name: ",'green')
+                        print('-'*50)
                         credential_name = input()
-                        
+                        print('-'*10)
                         """
-                        check if credential exits
+                        check if credential exits then delete
                         """
                         if check_existing_credentials(credential_name) == True:
-                            print(f"credential {credential_name} has been deleted")
+                            cprint(f"credential '{credential_name}' has been deleted",'green')
+                            print('-'*10)
                         else:
-                            print("no cerdential with this name")  
+                            cprint("no cerdential with this name",'red') 
+                            print('-'*10) 
 
-                        ######DELETE CREDENTIAL TEST
+                        #exit credentials
 
                     elif short_code == 'ex':
-                        print(f"See you later {user_name}")
+                        print('-'*10)
+                        cprint(f"See you later {user_name}",'yellow')
+                        print('-'*50)
                         print("\n")
                         break
 
                     else:
+                        print('-'*50)
+                        cprint(f'''{short_code} does not compute.
+                        Please use the short codes''','red')
                         print("\n")
-                        print(f'''{short_code} does not compute.
-    Please use the short codes''')
-                        print("\n")
-
+            
+            #exit user
         elif short_code == 'ex':
             '''
             Exit Password Locker app
             '''
-            print("\n")
-            print("Bye .....")
+            print('-'*50)
+            cprint("Bye .....",'yellow')
+            print('-'*10)
 
             break
 
         else:
-            print("\n")
-            print(f'''Come again, what's {short_code}?
-    Please use the short codes''')
+            print('-'*50)
+            cprint(f'''Come again, what's {short_code}?
+             Please use the short codes''','cyan')
             print("\n")
 
 if __name__ == '__main__':
